@@ -17,7 +17,6 @@ class CreatePurchaseItemsTable extends Migration
       $table->id();
       $table->foreignId('purchase_id')->constrained()->cascadeOnUpdate();
       $table->foreignId('product_id')->constrained()->cascadeOnUpdate();
-      $table->foreignId('category_id')->constrained()->cascadeOnUpdate();
       $table->integer('quantity');
       $table->decimal('unit_price', 15, 2);
       $table->decimal('total_price', 15, 2);

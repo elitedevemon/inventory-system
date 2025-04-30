@@ -42,7 +42,9 @@ Route::prefix('dashboard')->middleware('auth')->name('dashboard.')->group(functi
     Route::resource('suppliers', SupplierController::class)->except('show');
 
     //purchases
-    Route::resource('purchases', PurchaseController::class);
+    Route::resource('purchases', PurchaseController::class)->except('edit', 'update');
+    Route::post('purchases/{purchase}/pay-due', [PurchaseController::class, 'payDue'])
+      ->name('purchases.pay-due');
 
     //products
     Route::resource('products', ProductController::class);
