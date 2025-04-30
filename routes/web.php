@@ -36,7 +36,7 @@ Route::prefix('dashboard')->middleware('auth')->name('dashboard.')->group(functi
     Route::get('/', 'index')->name('index');
 
     // category
-    Route::resource('categories', CategoryController::class);
+    Route::resource('categories', CategoryController::class)->except('show');
 
     //supplier
     Route::resource('suppliers', SupplierController::class);

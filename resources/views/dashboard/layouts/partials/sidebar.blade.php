@@ -1,9 +1,4 @@
 <nav class="col-md-2 d-none d-md-block sidebar">
-  <a class="{{ Route::is('dashboard.index') ? 'active' : '' }}" href="{{ route('dashboard.index') }}">Dashboard</a>
-</nav>
-
-
-<nav class="col-md-2 d-none d-md-block bg-light sidebar">
   <div class="position-sticky pt-3">
     <ul class="nav flex-column">
 
@@ -16,42 +11,42 @@
 
       <!-- Categories -->
       <li class="nav-item">
-        <a class="nav-link {{ Route::is('dashboard.categories.*') ? 'active' : '' }}" href="{{ route('categories.index') }}">
+        <a class="nav-link {{ Route::is('dashboard.categories.*') ? 'active' : '' }}" href="{{ route('dashboard.categories.index') }}">
           <i class="bi bi-tags-fill"></i> Categories
         </a>
       </li>
 
       <!-- Products -->
       <li class="nav-item">
-        <a class="nav-link {{ Route::is('dashboard.products.*') ? 'active' : '' }}" href="{{ route('products.index') }}">
+        <a class="nav-link {{ Route::is('dashboard.products.*') ? 'active' : '' }}" href="{{ route('dashboard.products.index') }}">
           <i class="bi bi-box-seam"></i> Products
         </a>
       </li>
 
       <!-- Purchases -->
       <li class="nav-item">
-        <a class="nav-link {{ Route::is('dashboard.purchases.*') ? 'active' : '' }}" href="{{ route('purchases.index') }}">
+        <a class="nav-link {{ Route::is('dashboard.purchases.*') ? 'active' : '' }}" href="{{ route('dashboard.purchases.index') }}">
           <i class="bi bi-cart-plus-fill"></i> Purchases
         </a>
       </li>
 
       <!-- Sales -->
       <li class="nav-item">
-        <a class="nav-link {{ Route::is('dashboard.sales.*') ? 'active' : '' }}" href="{{ route('sales.index') }}">
+        <a class="nav-link {{ Route::is('dashboard.sales.*') ? 'active' : '' }}" href="{{ route('dashboard.sales.index') }}">
           <i class="bi bi-currency-dollar"></i> Sales
         </a>
       </li>
 
       <!-- Suppliers -->
       <li class="nav-item">
-        <a class="nav-link {{ Route::is('dashboard.suppliers.*') ? 'active' : '' }}" href="{{ route('suppliers.index') }}">
+        <a class="nav-link {{ Route::is('dashboard.suppliers.*') ? 'active' : '' }}" href="{{ route('dashboard.suppliers.index') }}">
           <i class="bi bi-truck"></i> Suppliers
         </a>
       </li>
 
       <!-- Customers -->
       <li class="nav-item">
-        <a class="nav-link {{ Route::is('dashboard.customers.*') ? 'active' : '' }}" href="{{ route('customers.index') }}">
+        <a class="nav-link {{ Route::is('dashboard.customers.*') ? 'active' : '' }}" href="{{ route('dashboard.customers.index') }}">
           <i class="bi bi-people-fill"></i> Customers
         </a>
       </li>
