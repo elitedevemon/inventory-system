@@ -1,5 +1,13 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\SaleController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +23,35 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+// auth routes
+Route::post('login', [AuthController::class, 'login'])->name('login');
+Route::post('logout', [AuthController::class,'logout'])->name('logout');
+
+// dashboard routes
+Route::prefix('dashboard')->middleware('auth')->name('dashboard.')->group(function(){
+  Route::controller(DashboardController::class)->group(function(){
+    Route::get('/', 'index')->name('index');
+
+    // category
+    Route::resource('categories', CategoryController::class);
+
+    //supplier
+    Route::resource('suppliers', SupplierController::class);
+
+    //purchases
+    Route::resource('purchases', PurchaseController::class);
+
+    //products
+    Route::resource('products', ProductController::class);
+
+    //customer
+    Route::resource('customers', CustomerController::class);
+
+    //sales
+    Route::resource('sales', SaleController::class);
+
+
+  });
 });
