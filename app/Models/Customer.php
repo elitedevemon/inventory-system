@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  protected $guarded = [];
+
+  public function sales()
+  {
+    return $this->hasMany(Sale::class);
+  }
 }

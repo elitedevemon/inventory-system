@@ -19,6 +19,7 @@ class CreateSalesTable extends Migration
       $table->foreignId('product_id')->constrained()->cascadeOnUpdate();
       $table->string('invoice_no')->unique();
       $table->date('sale_date');
+      $table->integer('total_product')->default(0);
       $table->decimal('total_amount', 15, 2);
       $table->decimal('paid_amount', 15, 2);
       $table->decimal('due_amount', 15, 2)->default(0);

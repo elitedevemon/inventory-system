@@ -51,6 +51,8 @@ Route::prefix('dashboard')->middleware('auth')->name('dashboard.')->group(functi
 
     //customer
     Route::resource('customers', CustomerController::class);
+    Route::post('customers/pay-due', [CustomerController::class, 'payDue'])->name('customers.pay-due');
+
 
     //sales
     Route::resource('sales', SaleController::class);

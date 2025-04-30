@@ -9,6 +9,10 @@ class Sale extends Model
 {
   use HasFactory;
 
+  protected $casts = [
+    'sale_date' => 'date',
+  ];
+
   protected $guarded = [];
 
   public function product()
