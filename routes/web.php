@@ -6,6 +6,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
@@ -51,6 +52,13 @@ Route::prefix('dashboard')->middleware('auth')->name('dashboard.')->group(functi
 
     //sales
     Route::resource('sales', SaleController::class);
+
+    //reports
+    Route::controller(ReportController::class)->prefix('reports')->name('reports.')->group(function(){
+      Route::get('sales', 'sales')->name('sales');
+      Route::get('purchases', 'purchases')->name('purchases');
+      Route::get('stock', 'stock')->name('stock');
+    });
 
 
   });
