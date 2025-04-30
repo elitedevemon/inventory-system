@@ -20,7 +20,7 @@
       <!-- Product Name -->
       <div class="mb-3">
         <label class="form-label" for="name">Product Name</label>
-        <input class="form-control" id="name" name="name" type="text" value="{{ old('name') }}"
+        <input class="form-control" id="name" name="name" type="text" value="{{ old('name') }}" placeholder="Product name"
           required>
       </div>
 

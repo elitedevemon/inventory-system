@@ -16,8 +16,8 @@
         <thead class="table-dark">
           <tr>
             <th>#</th>
-            <th>Product Image</th>
-            <th>Product Name</th>
+            <th>Image</th>
+            <th>Name</th>
             <th>Category</th>
             <th>Supplier</th>
             <th>Stock</th>
@@ -37,7 +37,7 @@
               <td>{{ $product->category->name ?? 'N/A' }}</td>
               <td>{{ $product->supplier->name ?? 'N/A' }}</td>
               <td>{{ $product->stock }}</td>
-              <td>{{ number_format($product->unit_price, 2) }}</td>
+              <td>৳ {{ number_format($product->price, 2) }}</td>
               <td>
                 <a class="btn btn-sm btn-warning"
                   href="{{ route('dashboard.products.show', $product->id) }}">View</a>

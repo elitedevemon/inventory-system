@@ -20,4 +20,9 @@ class Product extends Model
   {
     return $this->belongsTo(Supplier::class);
   }
+
+  public function latest_purchase_item()
+  {
+    return $this->hasOne(PurchaseItem::class)->latestOfMany();
+  }
 }

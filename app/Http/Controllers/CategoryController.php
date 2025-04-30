@@ -69,7 +69,6 @@ class CategoryController extends Controller
       'description' => 'nullable|string|max:1000',
     ]);
 
-    $category = Category::findOrFail($category->id);
     $category->update([
       'name' => $request->name,
       'description' => $request->description,

@@ -70,8 +70,6 @@ class SupplierController extends Controller
       'address' => 'nullable|string',
     ]);
 
-    $supplier = Supplier::findOrFail($supplier->id);
-
     $supplier->update($request->all());
 
     return redirect()->route('dashboard.suppliers.index')->with('success', 'Supplier updated successfully.');
