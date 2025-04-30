@@ -39,7 +39,7 @@ Route::prefix('dashboard')->middleware('auth')->name('dashboard.')->group(functi
     Route::resource('categories', CategoryController::class)->except('show');
 
     //supplier
-    Route::resource('suppliers', SupplierController::class);
+    Route::resource('suppliers', SupplierController::class)->except('show');
 
     //purchases
     Route::resource('purchases', PurchaseController::class);
