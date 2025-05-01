@@ -23,16 +23,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
 // auth routes
 Route::post('login', [AuthController::class, 'login'])->name('login');
-Route::post('logout', [AuthController::class,'logout'])->name('logout');
+Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 // dashboard routes
-Route::prefix('dashboard')->middleware('auth')->name('dashboard.')->group(function(){
-  Route::controller(DashboardController::class)->group(function(){
+Route::prefix('dashboard')->middleware('auth')->name('dashboard.')->group(function () {
+  Route::controller(DashboardController::class)->group(function () {
     Route::get('/', 'index')->name('index');
 
     // category
@@ -55,15 +55,14 @@ Route::prefix('dashboard')->middleware('auth')->name('dashboard.')->group(functi
 
 
     //sales
-    Route::resource('sales', SaleController::class);
+    Route::resource('sales', SaleController::class)->except('create', 'edit', 'update', 'destroy');
+    Route::post('sales/pay-due/{sale}', [SaleController::class, 'payDue'])->name('sales.pay-due');
 
     //reports
-    Route::controller(ReportController::class)->prefix('reports')->name('reports.')->group(function(){
+    Route::controller(ReportController::class)->prefix('reports')->name('reports.')->group(function () {
       Route::get('sales', 'sales')->name('sales');
       Route::get('purchases', 'purchases')->name('purchases');
       Route::get('stock', 'stock')->name('stock');
     });
-
-
   });
 });

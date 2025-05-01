@@ -55,6 +55,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-toggle="collapse" href="#reportMenu" role="button" aria-expanded="false" aria-controls="reportMenu">
           <i class="bi bi-graph-up"></i> Reports
+          <i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <div class="collapse {{ request()->is('dashboard.reports/*') ? 'show' : '' }}" id="reportMenu">
           <ul class="btn-toggle-nav list-unstyled fw-normal small ps-3">

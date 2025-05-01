@@ -21,8 +21,17 @@ class Product extends Model
     return $this->belongsTo(Supplier::class);
   }
 
+  public function purchases()
+  {
+    return $this->hasMany(PurchaseItem::class);
+  }
+
   public function latest_purchase_item()
   {
     return $this->hasOne(PurchaseItem::class)->latestOfMany();
+  }
+
+  public function sales(){
+    return $this->hasMany(SaleItem::class);
   }
 }

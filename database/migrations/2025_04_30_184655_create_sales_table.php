@@ -16,10 +16,9 @@ class CreateSalesTable extends Migration
     Schema::create('sales', function (Blueprint $table) {
       $table->id();
       $table->foreignId('customer_id')->constrained()->cascadeOnUpdate();
-      $table->foreignId('product_id')->constrained()->cascadeOnUpdate();
       $table->string('invoice_no')->unique();
       $table->date('sale_date');
-      $table->integer('total_product')->default(0);
+      $table->integer('quantity')->default(0);
       $table->decimal('total_amount', 15, 2);
       $table->decimal('paid_amount', 15, 2);
       $table->decimal('due_amount', 15, 2)->default(0);
