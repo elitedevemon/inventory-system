@@ -8,7 +8,7 @@
         <div class="card shadow-sm">
           <div class="card-header bg-primary text-white">Sales Overview</div>
           <div class="card-body">
-            <h5 class="card-title">{{ $totalSales }} USD</h5>
+            <h5 class="card-title">{{ $totalSales }} ৳</h5>
             <p class="card-text">Total Sales This Month</p>
           </div>
         </div>

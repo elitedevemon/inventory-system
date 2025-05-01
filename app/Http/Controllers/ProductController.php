@@ -41,7 +41,7 @@ class ProductController extends Controller
       'name' => 'required|string|max:255',
       'category_id' => 'required|exists:categories,id',
       'supplier_id' => 'nullable|exists:suppliers,id',
-      'stock' => 'required|integer|min:0',
+      'stock' => 'nullable|integer|min:0',
       'price' => 'required|numeric|min:0',
       'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
     ]);
@@ -94,7 +94,7 @@ class ProductController extends Controller
       'category_id' => 'required|exists:categories,id',
       'supplier_id' => 'required|exists:suppliers,id',
       'price' => 'required|numeric|min:0',
-      'stock' => 'required|integer|min:0',
+      'stock' => 'nullable|integer|min:0',
       'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Optional image validation
     ]);
 

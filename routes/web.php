@@ -22,9 +22,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+$welcomePageCallback = function(){
   return view('welcome');
-});
+};
+
+Route::get('/', $welcomePageCallback);
+Route::get('/login', $welcomePageCallback)->name('login');
 
 // auth routes
 Route::post('login', [AuthController::class, 'login'])->name('login');
@@ -34,35 +37,35 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 Route::prefix('dashboard')->middleware('auth')->name('dashboard.')->group(function () {
   Route::controller(DashboardController::class)->group(function () {
     Route::get('/', 'index')->name('index');
+  });
 
-    // category
-    Route::resource('categories', CategoryController::class)->except('show');
+  // category
+  Route::resource('categories', CategoryController::class)->except('show');
 
-    //supplier
-    Route::resource('suppliers', SupplierController::class)->except('show');
+  //supplier
+  Route::resource('suppliers', SupplierController::class)->except('show');
 
-    //purchases
-    Route::resource('purchases', PurchaseController::class)->except('edit', 'update');
-    Route::post('purchases/{purchase}/pay-due', [PurchaseController::class, 'payDue'])
-      ->name('purchases.pay-due');
+  //purchases
+  Route::resource('purchases', PurchaseController::class)->except('edit', 'update');
+  Route::post('purchases/{purchase}/pay-due', [PurchaseController::class, 'payDue'])
+    ->name('purchases.pay-due');
 
-    //products
-    Route::resource('products', ProductController::class);
+  //products
+  Route::resource('products', ProductController::class);
 
-    //customer
-    Route::resource('customers', CustomerController::class);
-    Route::post('customers/pay-due', [CustomerController::class, 'payDue'])->name('customers.pay-due');
+  //customer
+  Route::resource('customers', CustomerController::class);
+  Route::post('customers/pay-due', [CustomerController::class, 'payDue'])->name('customers.pay-due');
 
 
-    //sales
-    Route::resource('sales', SaleController::class)->except('create', 'edit', 'update', 'destroy');
-    Route::post('sales/pay-due/{sale}', [SaleController::class, 'payDue'])->name('sales.pay-due');
+  //sales
+  Route::resource('sales', SaleController::class)->except('create', 'edit', 'update', 'destroy');
+  Route::post('sales/pay-due/{sale}', [SaleController::class, 'payDue'])->name('sales.pay-due');
 
-    //reports
-    Route::controller(ReportController::class)->prefix('reports')->name('reports.')->group(function () {
-      Route::get('sales', 'sales')->name('sales');
-      Route::get('purchases', 'purchases')->name('purchases');
-      Route::get('stock', 'stock')->name('stock');
-    });
+  //reports
+  Route::controller(ReportController::class)->prefix('reports')->name('reports.')->group(function () {
+    Route::get('sales', 'sales')->name('sales');
+    Route::get('purchases', 'purchases')->name('purchases');
+    Route::get('stock', 'stock')->name('stock');
   });
 });

@@ -53,8 +53,7 @@
       <!-- Stock -->
       <div class="mb-3">
         <label class="form-label" for="stock">Stock Quantity</label>
-        <input class="form-control" id="stock" name="stock" type="number" value="{{ old('stock', 0) }}"
-          required>
+        <input class="form-control" id="stock" name="stock" type="number" value="{{ old('stock', 0) }}">
       </div>
 
       <!-- Unit Price -->

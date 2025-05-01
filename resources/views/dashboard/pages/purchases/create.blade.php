@@ -22,7 +22,7 @@
       <div class="mb-3">
         <label class="form-label" for="supplier_id">Select Supplier</label>
         <select class="form-select" id="supplier_id" name="supplier_id" required>
-          <option value="">-- Select Supplier --</option>
+          <option selected disabled>-- Select Supplier --</option>
           @foreach ($suppliers as $supplier)
             <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
           @endforeach
